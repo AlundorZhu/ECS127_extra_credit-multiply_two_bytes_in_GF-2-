@@ -4,11 +4,8 @@ FROM ubuntu:22.04
 #Updating package lists
 RUN apt-get update -y
 
-# Install xxd
-RUN apt-get install -y vim
-
 #Installing libraries
-RUN apt-get install -y build-essential g++ libstdc++6 cmake clang lldb git
+RUN apt-get install -y build-essential g++ libstdc++6 cmake gdb
 
 #Add extra libraries to install here
 # RUN apt-get install -y valgrind
@@ -17,8 +14,7 @@ RUN apt-get install -y build-essential g++ libstdc++6 cmake clang lldb git
 WORKDIR /multiply_two_bytes/
 
 #Copying your files here
-COPY ./Project1 /multiply_two_bytes/
-
+COPY . /multiply_two_bytes/
 
 # Set the default command to run when the container starts
 CMD ["/bin/bash"]
